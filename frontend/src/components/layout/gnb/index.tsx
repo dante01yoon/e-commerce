@@ -17,7 +17,7 @@ export const Gnb: FC = () => {
   return(
     <GnbContainer>
       <Styled.Gnb>
-        Styled.Gnb
+        
       </Styled.Gnb>
     </GnbContainer>
   )  

@@ -5,7 +5,7 @@ export const App: FC = () => {
   return(
     <GlobalThemeProvider>
       <PageContainer>
-
+        
       </PageContainer>
     </GlobalThemeProvider> 
   )

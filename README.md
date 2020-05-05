@@ -4,7 +4,8 @@
  1.typescript
  2.react
  3.styled-components
-
+ 4.redux 
+ 
 -------------------------------
 
 #### listed branches below will be manipulatedf with different dependencies and tech stacks 

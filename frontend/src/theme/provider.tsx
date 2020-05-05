@@ -7,6 +7,12 @@ const GlobalStyle = createGlobalStyle`
   ${reset}; 
   body {
     font-family: Lato, system-ui, -apple-system, BlinkMacSystemFont;
+  },
+  a{
+    text-decoration: none;
+  }
+  ul,ol{
+    list-style: none;
   }
 `
 export const theme:Theme = {

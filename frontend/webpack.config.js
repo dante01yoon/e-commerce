@@ -9,7 +9,7 @@ module.exports = {
     },
     output: {
         path: path.resolve(__dirname, 'dist'),
-        filename: '[name].bundle.js'
+        filename: '[name].bundle.js',
     },
     devtool: 'source-map',
     resolve: {
@@ -22,6 +22,18 @@ module.exports = {
                 test: /\.(ts|tsx)$/,
                 loader: 'ts-loader'
             },
+            {
+                test:/\.(jpe?g|png|gif|svg)$/i,
+                use: [
+                    'file-loader?name=asset/[name].[ext]?[hash]',
+                ]
+            },
+            // {
+            //     test: /\.(jpe?g|png)$/i,
+            //     use: {
+            //         loader: 'url-loader'
+            //     }
+            // },
             { enforce: "pre", test: /\.js$/, loader: "source-map-loader" }
         ]
     },

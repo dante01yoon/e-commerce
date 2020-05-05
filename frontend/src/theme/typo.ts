@@ -1,7 +1,7 @@
 import { Typo } from './interface';
 
 // line-height 
-export const NAV_LINE_HEIGHT = 'line-height: 56px;'
+export const NAV_LINE_HEIGHT = 'line-height: 64px;'
 export const DEFAULT_LINE_HEIGHT = 'line-height: 16px'
 // font-weight
 export const BOLD = 'font-weight: 700;';

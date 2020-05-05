@@ -1,12 +1,10 @@
 import React, { FC } from 'react';
-import { PageContainer } from 'src/components/layout/page-container';
 import { GlobalThemeProvider } from 'src/theme'
+import { HomePage } from './pages/homepage';
 export const App: FC = () => {
   return(
     <GlobalThemeProvider>
-      <PageContainer>
-        
-      </PageContainer>
+      <HomePage/>
     </GlobalThemeProvider> 
   )
 };

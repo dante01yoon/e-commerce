@@ -2,3 +2,4 @@
 */.dotenv
 */.gitignore
 gitconfig
+*/dist

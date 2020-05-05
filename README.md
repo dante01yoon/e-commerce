@@ -5,6 +5,8 @@
  2.react
  3.styled-components
 
+-------------------------------
+
 #### listed branches below will be manipulatedf with different dependencies and tech stacks 
 
  1.redux-saga

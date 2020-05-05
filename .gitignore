@@ -1,5 +1,5 @@
 */node_modules
 */.dotenv
 */.gitignore
-gitconfig
+.gitconfig
 */dist

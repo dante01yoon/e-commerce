@@ -21,30 +21,31 @@ export const Container = styled.div`
   flex-flow: row wrap;
   ${SemiContainer}:nth-child(1){
     ${CardItem}:nth-child(1) {
-      height: 248px;
+      height: 336px;
       background-color: orange;
     }
     ${CardItem}:nth-child(2) {
-      height: 328px;
+      height: 344px;
       background-color: green;
     }
     ${CardItem}:nth-child(3) {
-      height: 196px;
+      height: 368px;
       background-color: purple;
     }
   }
   ${SemiContainer}:nth-child(2){
     ${CardItem}:nth-child(1) {
-      height: 196px;
+      margin-top: 16px;
+      height: 352px;
       background-color: gray;
     }
     ${CardItem}:nth-child(2) {
-      height: 248px;
-      background-color: orange;
+      height: 360px;
+      background-color: mandarin;
     }
     ${CardItem}:nth-child(3) {
-      height: 328px;
-      background-color: purple;
+      height: 344px;
+      background-color: yellow;
     }
   }
   ${SemiContainer}:nth-child(3){

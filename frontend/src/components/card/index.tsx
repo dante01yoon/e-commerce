@@ -1,9 +1,9 @@
 import React, { FC } from 'react';
 import * as Styled from './style';
-import { SHOP_DATA } from 'src/models/data'; 
+import { INITIAL_DATA } from 'src/models/data'; 
 export const CardContainer:FC = () => {
   let items = new Array(); 
-  let slicedData = SHOP_DATA[0].items.slice();
+  let slicedData = INITIAL_DATA.slice();
   while(slicedData.length > 0){
     let cardItems = new Array(); 
     for( const [index, value] of slicedData.splice(0,3).entries()){
@@ -15,6 +15,8 @@ export const CardContainer:FC = () => {
       </Styled.SemiContainer>
     ]
   }
+  console.log('slicedData: ', slicedData)
+  console.log('items: ', items);
   return(
     <section>
       <Styled.Container>

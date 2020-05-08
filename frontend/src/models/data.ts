@@ -10,6 +10,14 @@ type SHOP_ITEM = {
   imageUrl: string,
   price: number
 }
+type INITIAL_ITEM = {
+  id: number,
+  name: string,
+  title: string,
+  imageUrl: string,
+  price: number
+}
+type INITIAL_DATA = INITIAL_ITEM[]; 
 
 export const SHOP_DATA: SHOP_DATA[] = [
   {
@@ -260,3 +268,32 @@ export const SHOP_DATA: SHOP_DATA[] = [
 ];
 
 export default SHOP_DATA;
+
+const buildInitialData = (): INITIAL_DATA =>{ 
+  const ItemIdStore = new Map<number,boolean>();
+  let INITIAL_DATA_ARRAY:INITIAL_DATA[] = SHOP_DATA.map((category: SHOP_DATA) => {
+    let items: INITIAL_ITEM[] = new Array<INITIAL_ITEM>();
+    for(let item of category.items){
+      let id = ~~ 1*Math.floor(Math.random()* 1 * 0xffce);
+      while(ItemIdStore.has(id)){
+        id = ~~ 1*Math.floor(Math.random()* 1 * 0xffce);
+      }
+      ItemIdStore.set(id,true);
+      items.push({
+        id,
+        name: item.name,
+        title:category.title,
+        imageUrl: item.imageUrl,
+        price: item.price
+      });
+    }
+    return items; 
+  });
+  let INITIAL_DATA:INITIAL_DATA = new Array<INITIAL_ITEM>()
+  for( let SHOP_DATA of INITIAL_DATA_ARRAY) {
+    INITIAL_DATA = [...INITIAL_DATA, ...SHOP_DATA]
+  }
+  return INITIAL_DATA; 
+}
+export const INITIAL_DATA : INITIAL_DATA = buildInitialData().sort((a,b)=> a.id - b.id);  
+console.log('initial_data: ', INITIAL_DATA); 

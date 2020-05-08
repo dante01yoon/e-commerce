@@ -38,7 +38,6 @@ const Styled = {
   MainLogo,
   MenuContainer,
   MenuItem, 
-
   RightNav
 }
 export default Styled ; 

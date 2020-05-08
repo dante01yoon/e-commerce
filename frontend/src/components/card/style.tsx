@@ -4,10 +4,11 @@ export const CardSection = styled.section`
 `
 
 export const CardItem = styled.div`
+  margin: 8px 8px;
   width: 272px;
   display:flex;
   align-items: center; 
-  background-color: aqua; 
+  cursor:pointer; 
 `;
 export const SemiContainer = styled.div`
   flex-flow: column wrap;
@@ -41,7 +42,7 @@ export const Container = styled.div`
     }
     ${CardItem}:nth-child(2) {
       height: 360px;
-      background-color: mandarin;
+      background-color: aqua;
     }
     ${CardItem}:nth-child(3) {
       height: 344px;

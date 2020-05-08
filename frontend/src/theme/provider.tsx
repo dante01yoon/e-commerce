@@ -3,6 +3,7 @@ import {ThemeProvider, createGlobalStyle } from 'styled-components';
 import reset from 'styled-reset';
 import { Theme } from './interface';
 import { typo } from './typo'; 
+import { colors } from './colors';
 const GlobalStyle = createGlobalStyle`
   ${reset}; 
   body {
@@ -16,7 +17,8 @@ const GlobalStyle = createGlobalStyle`
   }
 `
 export const theme:Theme = {
-  typo  
+  typo,
+  colors 
 }
 
 export const GlobalThemeProvider: FC<{

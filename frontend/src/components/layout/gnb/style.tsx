@@ -11,6 +11,7 @@ export const Gnb = styled.nav`
   z-index:500;
   height:64px;
   width: 100%;
+  background-color: ${p => p.theme.colors.white}
 `;
 export const MainLogo = styled.img`
   width: 64px;

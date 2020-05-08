@@ -1,8 +1,11 @@
 import { 
   Typo,
+  Color
  } from './index';
 export interface Theme<
- TypoType = Typo
+ TypoType = Typo,
+ ColorType = Color
 >{
- typo : Readonly<TypoType & Typo>
+ typo : Readonly<TypoType & Typo>;
+ colors : Readonly<ColorType & Color>;
 }

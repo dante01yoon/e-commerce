@@ -4,14 +4,16 @@ export const CardSection = styled.section`
 `
 
 export const CardItem = styled.div`
-  margin: 8px 8px;
+  margin: 16px 8px;
   width: 272px;
   display:flex;
   align-items: center; 
   cursor:pointer; 
+  border-radius: 8px;
 `;
 export const SemiContainer = styled.div`
   flex-flow: column wrap;
+  align-items: flex-start; 
 `
 export const Container = styled.div`
   overflow: auto; 
@@ -20,7 +22,7 @@ export const Container = styled.div`
   display:flex;
   justify-content: center;
   flex-flow: row wrap;
-  ${SemiContainer}:nth-child(1){
+  ${SemiContainer}:nth-child(2n-1){
     ${CardItem}:nth-child(1) {
       height: 336px;
       background-color: orange;
@@ -34,14 +36,14 @@ export const Container = styled.div`
       background-color: purple;
     }
   }
-  ${SemiContainer}:nth-child(2){
+  ${SemiContainer}:nth-child(2n){
     ${CardItem}:nth-child(1) {
       margin-top: 16px;
       height: 352px;
       background-color: gray;
     }
     ${CardItem}:nth-child(2) {
-      height: 360px;
+      height: 248px;
       background-color: aqua;
     }
     ${CardItem}:nth-child(3) {
@@ -49,7 +51,7 @@ export const Container = styled.div`
       background-color: yellow;
     }
   }
-  ${SemiContainer}:nth-child(3){
+  ${SemiContainer}:nth-child(3n){
     ${CardItem}:nth-child(1) {
       height: 328px;
       background-color: blue;
@@ -64,3 +66,19 @@ export const Container = styled.div`
     }
   }
 `
+export const Title = styled.div`
+  :hover{
+    display: block 
+  }
+`;
+export const CardImage = styled.div<{
+  url: string
+}>`
+  background-image: url(${p => p.url});
+  background-repeat: no-repeat; 
+  width: 100%;
+  height: 100%; 
+`; 
+
+export const Price = styled.div`
+`; 

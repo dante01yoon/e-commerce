@@ -16,7 +16,9 @@ type INITIAL_ITEM = {
   title: string,
   imageUrl: string,
   price: number
+  route?: string
 }
+export type CARD_ITEM_TYPE =INITIAL_ITEM;
 type INITIAL_DATA = INITIAL_ITEM[]; 
 
 export const SHOP_DATA: SHOP_DATA[] = [

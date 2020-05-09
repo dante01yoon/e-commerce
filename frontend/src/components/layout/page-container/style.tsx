@@ -7,4 +7,5 @@ export const Container = styled.div`
 export const Main = styled.main`
   width: 100%;
   height: 100vh;
+  overflow-y: auto;
 `

@@ -4,6 +4,7 @@ export const CardSection = styled.section`
 `
 
 export const CardItem = styled.div`
+  position: relative;
   margin: 16px 8px;
   width: 272px;
   display:flex;
@@ -25,44 +26,36 @@ export const Container = styled.div`
   ${SemiContainer}:nth-child(2n-1){
     ${CardItem}:nth-child(1) {
       height: 336px;
-      background-color: orange;
     }
     ${CardItem}:nth-child(2) {
       height: 344px;
-      background-color: green;
     }
     ${CardItem}:nth-child(3) {
       height: 368px;
-      background-color: purple;
     }
   }
   ${SemiContainer}:nth-child(2n){
+    margin-top: 8px; 
     ${CardItem}:nth-child(1) {
       margin-top: 16px;
       height: 352px;
-      background-color: gray;
     }
     ${CardItem}:nth-child(2) {
       height: 248px;
-      background-color: aqua;
     }
     ${CardItem}:nth-child(3) {
       height: 344px;
-      background-color: yellow;
     }
   }
   ${SemiContainer}:nth-child(3n){
     ${CardItem}:nth-child(1) {
-      height: 328px;
-      background-color: blue;
+      height: 264px;
     }
     ${CardItem}:nth-child(2) {
       height: 328px;
-      background-color: black;
     }
     ${CardItem}:nth-child(3) {
       height: 384px;
-      background-color: green;
     }
   }
 `
@@ -74,11 +67,21 @@ export const Title = styled.div`
 export const CardImage = styled.div<{
   url: string
 }>`
+  border-radius: 8px;
   background-image: url(${p => p.url});
   background-repeat: no-repeat; 
+  background-size:cover; 
   width: 100%;
   height: 100%; 
 `; 
 
 export const Price = styled.div`
 `; 
+export const ContentBox = styled.div`
+  display:flex;
+  position:absolute;
+  bottom: 0;
+  padding: 16px;
+  color: white;
+  
+`;

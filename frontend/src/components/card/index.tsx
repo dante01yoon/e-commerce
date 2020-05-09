@@ -34,10 +34,12 @@ export const Card:FC<{
   const { name, title, imageUrl, price} = shopItems;
   return(
     <Styled.CardItem>
-      <Styled.Title>{title}</Styled.Title>
       <Styled.CardImage url={imageUrl}/>
-      <Styled.Title>{name}</Styled.Title>
-      <Styled.Price>{price}</Styled.Price>
+      <Styled.ContentBox>
+        <Styled.Title>{title}</Styled.Title>
+        <Styled.Title>{name}</Styled.Title>
+        <Styled.Price>{price}</Styled.Price>
+      </Styled.ContentBox>
     </Styled.CardItem>
   )
 }

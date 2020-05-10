@@ -7,3 +7,5 @@ export const ErrorPage:FC = ({}) => {
    </>
  ) 
 }
+
+export default ErrorPage; 

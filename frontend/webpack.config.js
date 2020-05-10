@@ -33,12 +33,7 @@ module.exports = {
                     'file-loader?name=asset/[name].[ext]?[hash]',
                 ]
             },
-            // {
-            //     test: /\.(jpe?g|png)$/i,
-            //     use: {
-            //         loader: 'url-loader'
-            //     }
-            // },
+            
             { enforce: "pre", test: /\.js$/, loader: "source-map-loader" }
         ]
     },

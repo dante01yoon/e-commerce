@@ -1,13 +1,14 @@
-import React, {FC, ReactNode,Suspense } from 'react';
+import React, {FC, ReactNode, Suspense, ReactChildren } from 'react';
 
 const LazyLoader:FC<{
-  component: ReactNode
+  Component: FC
 }> = ({
-  component
+  Component
 }) => {
+  console.log(Component);
   return(
     <Suspense fallback={<p>...loading</p>}>
-      {component}
+      <Component/>
     </Suspense>
   )
 } 

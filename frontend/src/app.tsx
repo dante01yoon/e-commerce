@@ -1,10 +1,13 @@
 import React, { FC } from 'react';
 import { GlobalThemeProvider } from 'src/theme'
-import { HomePage } from './pages/homepage';
+import { PageContainer } from './components/layout/page-container';
+import { AppRouter } from 'src/components/router';
 export const App: FC = () => {
   return(
     <GlobalThemeProvider>
-      <HomePage/>
+      <PageContainer>
+        <AppRouter/>
+      </PageContainer>
     </GlobalThemeProvider> 
   )
 };

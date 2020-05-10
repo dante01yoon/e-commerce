@@ -2,16 +2,45 @@ import styled from 'styled-components';
 
 export const CardSection = styled.section`
 `
-
+export const ContentBox = styled.div`
+  border-radius: 8px;
+  position:absolute;
+  bottom: 0;
+  padding: 16px;
+  color: white;
+  opacity: 0;
+  display: block;   
+  background-color: ${p => p.theme.colors.lightBlack}
+  transition: all 0.3s ease 0s; 
+  width: 100%; 
+  box-sizing: border-box;
+`;
+export const CardImage = styled.div<{
+  url: string
+}>`
+  border-radius: 8px;
+  background-image: url(${p => p.url});
+  background-repeat: no-repeat; 
+  background-size:cover; 
+  width: 100%;
+  height: 100%; 
+`; 
 export const CardItem = styled.div`
-  position: relative;
+position: relative;
   margin: 16px 8px;
   width: 272px;
   display:flex;
   align-items: center; 
   cursor:pointer; 
   border-radius: 8px;
+  &:hover ${ContentBox}{
+    opacity: 1; 
+    + div {
+      background-size: 110%; 
+    }
+  }
 `;
+
 export const SemiContainer = styled.div`
   flex-flow: column wrap;
   align-items: flex-start; 
@@ -64,24 +93,7 @@ export const Title = styled.div`
     display: block 
   }
 `;
-export const CardImage = styled.div<{
-  url: string
-}>`
-  border-radius: 8px;
-  background-image: url(${p => p.url});
-  background-repeat: no-repeat; 
-  background-size:cover; 
-  width: 100%;
-  height: 100%; 
-`; 
+
 
 export const Price = styled.div`
 `; 
-export const ContentBox = styled.div`
-  display:flex;
-  position:absolute;
-  bottom: 0;
-  padding: 16px;
-  color: white;
-  
-`;

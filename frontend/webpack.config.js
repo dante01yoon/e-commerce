@@ -5,11 +5,16 @@ const path = require('path'),
 module.exports = {
     entry: {
         app: ['./src/index.tsx', 'webpack-hot-middleware/client'],
-        vendor: ['react', 'react-dom']
+        vendor: [
+            'react', 
+            'react-dom',
+            'react-router-dom'
+        ]
     },
     output: {
         path: path.resolve(__dirname, 'dist'),
-        filename: '[name].bundle.js',
+        filename: '[name].[hash].js',
+        chunkFilename: '[name].[chunkhash].chunk.js'
     },
     devtool: 'source-map',
     resolve: {

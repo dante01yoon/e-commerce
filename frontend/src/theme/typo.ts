@@ -20,4 +20,16 @@ export const typo: Typo = Object.freeze({
     color: black;
     ${BOLD}
   `,
+  detail20black:`
+    ${MEDIUM};
+    color: 1C2D3D;
+    line-height: 1.2;
+    font-size: 20px;
+  `,
+  item24black:`
+    ${BOLD}
+    color: 1C2D3D;
+    line-height: 28px;
+    font-size: 24px;
+  `
 })

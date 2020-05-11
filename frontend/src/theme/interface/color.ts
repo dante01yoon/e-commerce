@@ -3,4 +3,6 @@ export interface Color{
   black: string;  
   lightBlack: string;
   blackLetter: string;
+  bigBlack: string;
+  aquaBlue: string;
 }

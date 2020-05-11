@@ -5,7 +5,6 @@ const LazyLoader:FC<{
 }> = ({
   Component
 }) => {
-  console.log(Component);
   return(
     <Suspense fallback={<p>...loading</p>}>
       <Component/>

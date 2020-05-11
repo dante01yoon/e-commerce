@@ -1,10 +1,10 @@
 import React, { FC,lazy,Suspense } from 'react';
-
+import { ShopComponent } from 'src/components/shop';
 const LazyShopPage =  lazy(() => import('src/pages/shop'));
 export const ShopPage: FC = () => {
   return( 
     <>
-      Shop
+      <ShopComponent/>
     </>
   )
 }

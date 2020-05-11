@@ -43,3 +43,5 @@ export const Card:FC<{
     </Styled.CardItem>
   )
 }
+
+export default CardContainer;

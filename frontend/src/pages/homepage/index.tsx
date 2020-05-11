@@ -1,8 +1,13 @@
-import React, { FC } from 'react';
-import { CardContainer } from 'src/components/card';
+import React, { FC, lazy,Suspense } from 'react';
+
+const CardContainer = lazy(() => import('src/components/card')); 
 export const HomePage:FC =() => {
   return(
-    <CardContainer/> 
+    <>
+      <Suspense fallback={<div>...loading</div>}>
+        <CardContainer/>
+      </Suspense>  
+    </> 
   )
 }
 

@@ -1,6 +1,6 @@
 import React, {FC} from 'react';
 
-export const ErrorPage:FC = ({}) => {
+export const ErrorComponent:FC = ({}) => {
  return(
    <>
     <p>404 Not Found</p>
@@ -8,4 +8,4 @@ export const ErrorPage:FC = ({}) => {
  ) 
 }
 
-export default ErrorPage; 
+export default ErrorComponent; 

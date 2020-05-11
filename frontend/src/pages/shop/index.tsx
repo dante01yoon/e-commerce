@@ -7,3 +7,5 @@ export const ShopPage: FC = () => {
     </>
   )
 }
+
+export default ShopPage;

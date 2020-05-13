@@ -40,7 +40,9 @@ export const DetailBox = styled.div`
 `;
 export const DetailTitle = styled.h4`
   ${p=>p.theme.typo.detail20black}
+  margin-bottom: 8px;
 `; 
 export const DetailParagraph = styled.p`
   color: ${p=>p.theme.colors.aquaBlue};
-`;
+  margin-bottom: 8px;
+  `;

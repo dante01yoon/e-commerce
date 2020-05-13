@@ -1,9 +1,16 @@
-import React, { FC } from 'react';
+import React, { FC, useState } from 'react';
 import * as Styled from './style';
-import {INITIAL_DATA} from 'src/models/data';
+import { INITIAL_DATA } from 'src/models/data';
+import { ItemCountForm } from 'src/models/item-count'
+import { CountForm } from 'src/components/count-form';
 export const ShopComponent:FC = ({}) => {
-  const DUMMY_DATA = INITIAL_DATA[0];
-  const {imageUrl,price,title, name} = DUMMY_DATA; 
+  const DUMMY_DATA = INITIAL_DATA[0]; 
+  const {id,imageUrl,price,title, name} = DUMMY_DATA; 
+  const partialData:Omit<ItemCountForm, 'count'> = {
+    id,
+    price,
+    name
+  }
   return(
     <Styled.ItemContainer>
       <Styled.ItemSection>
@@ -15,7 +22,9 @@ export const ShopComponent:FC = ({}) => {
           <Styled.Title>Details</Styled.Title>
           <Styled.DetailBox>
             <Styled.DetailTitle>{title}</Styled.DetailTitle>
-            <Styled.DetailParagraph>{price}</Styled.DetailParagraph>
+            <Styled.DetailParagraph>{name}$</Styled.DetailParagraph>
+            <Styled.DetailParagraph>{price}$</Styled.DetailParagraph>
+            <CountForm partialData={partialData}/>
           </Styled.DetailBox>
         </Styled.SpecArticle>
       </Styled.ItemSection>

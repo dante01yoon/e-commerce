@@ -1,19 +1,19 @@
 import React , { FC, lazy, Suspense } from 'react';
-import * as Styled from './style';
-
+import { ItemComponent } from 'src/components/item';
+const LazyItemPage =  lazy(() => import('src/pages/item'));
 export const ItemPage:FC = ({}) => {
   return(
     <>
-      <Styled.Section>
-        <Styled.InformArticle>
-
-        </Styled.InformArticle>
-        <Styled.ShopArticle>
-
-        </Styled.ShopArticle>
-      </Styled.Section>
+     <ItemComponent/> 
     </>   
   )
 }
 
+export const Item:FC = () => {
+  return(
+    <Suspense fallback={<span>...loading</span>}>
+      <LazyItemPage/>
+    </Suspense>
+  )
+}
 export default ItemPage;

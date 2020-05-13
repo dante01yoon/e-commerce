@@ -11,6 +11,7 @@ export const AppRouter: FC = () => {
       <Switch>
         <Route exact path= "/" render={()=> <LazyLoader Component={HomePage} />}/>
         <Route path="/item" render={() => <LazyLoader Component={ItemPage}/>}/>
+        <Route path="/item/:id" render={() => <LazyLoader Component={ItemPage}/>}/> 
         <Route path="/shop" render={() => <LazyLoader Component={ShopPage}/>}/>
         <Route path="/shop/:category" render={() => <LazyLoader Component={ShopPage}/>}/>
         <Route path="/shop/:category/:id" render={() => <LazyLoader Component={ShopPage}/>}/>

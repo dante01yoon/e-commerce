@@ -3,7 +3,7 @@ import * as Styled from './style';
 import { INITIAL_DATA } from 'src/models/data';
 import { ItemCountForm } from 'src/models/item-count'
 import { CountForm } from 'src/components/count-form';
-export const ShopComponent:FC = ({}) => {
+export const ItemComponent:FC = ({}) => {
   const DUMMY_DATA = INITIAL_DATA[0]; 
   const {id,imageUrl,price,title, name} = DUMMY_DATA; 
   const partialData:Omit<ItemCountForm, 'count'> = {

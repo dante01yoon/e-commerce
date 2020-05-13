@@ -30,7 +30,8 @@ export const CountForm:FC<{
   return(
     <>
       <form onSubmit={handleSubmit(onSubmit)}>
-        <input type="number" name="count"  ref={register({
+        <Styled.Button onClick={onIncrease}>+</Styled.Button>
+        <Styled.InputNumber type="number" name="count"  ref={register({
           min:{
             value:1,
             message: "you need at least 1"
@@ -45,8 +46,7 @@ export const CountForm:FC<{
           name={"count"} 
           as={<Styled.ErrorText/>}
         />
-        <button onClick={onIncrease}>+</button>
-        <button onClick={onDecrease}>-</button>
+        <Styled.Button onClick={onDecrease}>-</Styled.Button>
         <button type="submit">Add Cart</button>
       </form>
     </>

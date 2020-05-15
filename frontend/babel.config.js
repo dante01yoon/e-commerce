@@ -24,6 +24,7 @@ module.exports = api => {
     ],
     plugins: [
       '@loadable/babel-plugin',
+      '@babel/plugin-transform-runtime',
       [ 
         'module-resolver',
         {

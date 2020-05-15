@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 import { CardContainer } from 'src/components/card';
-export const HomePage:FC =() => {
+const HomePage:FC =() => {
   return(
     <CardContainer/> 
   )

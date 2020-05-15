@@ -1,9 +1,15 @@
 import React , { FC, lazy, Suspense } from 'react';
+import { Helmet } from 'react-helmet'; 
 import { ItemComponent } from 'src/components/item';
 const LazyItemPage =  lazy(() => import('src/pages/item'));
-export const ItemPage:FC = ({}) => {
+const ItemPage:FC = ({}) => {
   return(
     <>
+     <Helmet>
+       <title>
+        S4 - item
+       </title>
+      </Helmet>
      <ItemComponent/> 
     </>   
   )
@@ -11,9 +17,7 @@ export const ItemPage:FC = ({}) => {
 
 export const Item:FC = () => {
   return(
-    <Suspense fallback={<span>...loading</span>}>
-      <LazyItemPage/>
-    </Suspense>
+    <LazyItemPage/>
   )
 }
 export default ItemPage;

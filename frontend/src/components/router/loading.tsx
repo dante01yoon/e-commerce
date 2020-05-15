@@ -1,7 +1,8 @@
 import React, {FC, ReactNode, Suspense, ReactChildren } from 'react';
+import { LoadableComponent } from '@loadable/component';
 
 const LazyLoader:FC<{
-  Component: FC
+  Component: LoadableComponent<{}>
 }> = ({
   Component
 }) => {

@@ -19,7 +19,7 @@ export const MainLogo = styled.img`
   margin-left: 32px;
 `;
 export const MenuContainer= styled.ul`
-  
+ display:inline-block;
 `;
 export const MenuItem = styled.li`
   float:left;

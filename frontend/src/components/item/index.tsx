@@ -1,4 +1,4 @@
-import React, { FC, useState } from 'react';
+import React, { FC } from 'react';
 import * as Styled from './style';
 import { INITIAL_DATA } from 'src/models/data';
 import { ItemCountForm } from 'src/models/item-count'
@@ -11,6 +11,7 @@ export const ItemComponent:FC = ({}) => {
     price,
     name
   }
+  console.log('imageUrl:', `${imageUrl}`);
   return(
     <Styled.ItemContainer>
       <Styled.ItemSection>

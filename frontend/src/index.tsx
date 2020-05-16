@@ -1,5 +1,5 @@
 import React from 'react';
-import ReactDOM,{ hydrate } from 'react-dom';
+import { hydrate } from 'react-dom';
 declare let module: any
 import App from 'src/app'; 
 import { loadableReady } from '@loadable/component';

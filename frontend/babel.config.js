@@ -25,6 +25,11 @@ module.exports = api => {
     plugins: [
       '@loadable/babel-plugin',
       '@babel/plugin-transform-runtime',
+      [
+        'babel-plugin-styled-components',{
+          "ssr": true 
+        }
+      ],
       [ 
         'module-resolver',
         {

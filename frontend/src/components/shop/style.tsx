@@ -1,48 +1,36 @@
-import styled from 'styled-components'; 
-export const ItemContainer = styled.div`
-  width: 880px;
-  margin: 0 auto;
-  padding: 16px 0; 
-`
-export const ItemSection = styled.section`
-  display: flex;
-`;
+import styled from 'styled-components';  
 
+export const CategorySection = styled.section`
+  
+`;
 export const ItemArticle = styled.article`
-  width: 504px;
-`;
-
-export const SpecArticle = styled.article`
-  margin-left: 88px;
-  width: 288px;
-  box-sizing: border-box;
-  `;
-export const Title = styled.h3`
-  ${p=>p.theme.typo.item24black}
-`;
-export const ImageBox = styled.div<{imageUrl: string }>`
-  margin-top: 16px;
-  width: 100%;
-  height: 512px;
-  box-sizing: border-box;
-  border-radius: 8px;
-  background-image: url(${p => p.imageUrl});
-  background-repeat: no-repeat; 
-  background-size:cover; 
-`;
-export const DetailBox = styled.div`
-  box-sizing: border-box;
-  margin-top: 16px; 
-  padding: 24px 16px;
-  width: 100%;
-  height: 512px;
-  border: 1px solid ${p => p.theme.colors.letterBlack};
-`;
-export const DetailTitle = styled.h4`
-  ${p=>p.theme.typo.detail20black}
-  margin-bottom: 8px;
+  
 `; 
-export const DetailParagraph = styled.p`
-  color: ${p=>p.theme.colors.aquaBlue};
-  margin-bottom: 8px;
-  `;
+export const Title = styled.h3`
+  width: 100%;
+  font-size:40px; 
+  font-weight: 500; 
+  color: ${p=>p.theme.colors.blackLetter};  
+`;
+export const ItemContainer = styled.div`
+  text-align: center;
+  display: flex;
+  flex-direction: column; 
+  margin: 40px 0; 
+`;
+export const Collections = styled.div`
+  padding: 40px 0 ; 
+  display: grid; 
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-gap: 16px;
+`
+export const ItemBox = styled.div<{
+  url: string;
+}>`
+  display:flex;
+  background-image: url(${p=> p.url});
+  background-size: cover;
+  background-position: center;  
+  width: 100%; 
+  height: 360px;
+`

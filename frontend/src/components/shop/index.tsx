@@ -1,33 +1,31 @@
 import React, { FC, useState } from 'react';
 import * as Styled from './style';
-import { INITIAL_DATA } from 'src/models/data';
-import { ItemCountForm } from 'src/models/item-count'
-import { CountForm } from 'src/components/count-form';
-export const ShopComponent:FC = ({}) => {
-  const DUMMY_DATA = INITIAL_DATA[0]; 
-  const {id,imageUrl,price,title, name} = DUMMY_DATA; 
-  const partialData:Omit<ItemCountForm, 'count'> = {
-    id,
-    price,
-    name
-  }
+import {  SHOP_DATA_TYPE } from 'src/models/data';
+export const ShopComponent:FC<{
+  data: SHOP_DATA_TYPE
+}> = ({
+  data  
+}) => {
+  const { title } = data;   
   return(
-    <Styled.ItemContainer>
-      <Styled.ItemSection>
-        <Styled.ItemArticle>
-          <Styled.Title>About</Styled.Title>
-          <Styled.ImageBox imageUrl={imageUrl}/>
-        </Styled.ItemArticle>
-        <Styled.SpecArticle>
-          <Styled.Title>Details</Styled.Title>
-          <Styled.DetailBox>
-            <Styled.DetailTitle>{title}</Styled.DetailTitle>
-            <Styled.DetailParagraph>{name}</Styled.DetailParagraph>
-            <Styled.DetailParagraph>{price}$</Styled.DetailParagraph>
-            <CountForm partialData={partialData}/>
-          </Styled.DetailBox>
-        </Styled.SpecArticle>
-      </Styled.ItemSection>
-    </Styled.ItemContainer>
+    <Styled.CategorySection>
+      <Styled.ItemArticle>
+        <Styled.ItemContainer>
+          <Styled.Title>{title}</Styled.Title>
+          <Styled.Collections>
+            {
+              data.items.map((value,index) => {
+                console.log(value);
+                return(
+                  <Styled.ItemBox url={value.imageUrl} key={value.id}>
+                    
+                  </Styled.ItemBox>
+                )
+              })
+            }
+          </Styled.Collections>
+        </Styled.ItemContainer>
+      </Styled.ItemArticle>
+    </Styled.CategorySection>
   )
 }

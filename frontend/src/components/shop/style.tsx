@@ -28,6 +28,7 @@ export const ItemBox = styled.div<{
   url: string;
 }>`
   display:flex;
+  border-radius: 8px;
   background-image: url(${p=> p.url});
   background-size: cover;
   background-position: center;  

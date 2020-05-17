@@ -37,7 +37,6 @@ app.use(express.static(path.resolve(__dirname)));
 
 app.get('*', (req, res) => {
 const sheet = new ServerStyleSheet(); 
-const styleTags = sheet.getStyleTags(); 
 const nodeStats = path.resolve(__dirname, './node/loadable-stats.json');
 const webStats = path.resolve(__dirname, './web/loadable-stats.json');
 const nodeExtractor = new ChunkExtractor({ statsFile: nodeStats });

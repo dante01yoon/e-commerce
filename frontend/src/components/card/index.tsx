@@ -1,10 +1,13 @@
 import React, { FC } from 'react';
+import { useSelector, useDispatch} from 'react-redux';
+import { RootState } from '@modules/index';
 import * as Styled from './style';
+
 import { INITIAL_DATA, CARD_ITEM_TYPE } from 'src/models/data'; 
 export const CardContainer:FC = () => {
+  const initialData = useSelector((state: RootState) => state.initial.data);
   let items = new Array(); 
-  let slicedData = INITIAL_DATA.slice();
-  console.log(slicedData.length);
+  let slicedData = initialData.slice();
   while(slicedData.length > 0){
     let cardItems = new Array(); 
     for( const [index, value] of slicedData.splice(0,3).entries()){

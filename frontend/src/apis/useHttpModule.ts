@@ -1,6 +1,6 @@
 import axios, {AxiosInstance , AxiosRequestConfig } from 'axios';
 import { APIResponse } from './types';
-const baseURL = 'http://localhost:5001';
+const baseURL = ' https://www.mocky.io/v2/5185415ba171ea3a00704eed';
 
 const s4Axios: AxiosInstance = axios.create({
   baseURL

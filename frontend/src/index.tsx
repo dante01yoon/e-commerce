@@ -5,11 +5,9 @@ import App from 'src/app';
 import { loadableReady } from '@loadable/component';
 import { BrowserRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
-import { createStore , compose } from 'redux'; 
-import rootReducer from '@modules/index';
-import { composeWithDevTools } from 'redux-devtools-extension';
+import { store } from '@modules/index';
+
 loadableReady(() => {
-  const store = createStore(rootReducer, composeWithDevTools()); 
   const rootElement = document.getElementById('root');
   hydrate(
     <Provider store={store}>

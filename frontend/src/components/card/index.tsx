@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import { useSelector, useDispatch} from 'react-redux';
+import { useSelector } from 'react-redux';
 import { RootState } from '@modules/index';
 import * as Styled from './style';
 

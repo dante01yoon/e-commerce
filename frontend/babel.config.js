@@ -43,7 +43,9 @@ module.exports = api => {
             '@reducers': './src/store/reducers',
             '@theme': './src/theme',
             '@util': './src/util',
-            '@modules': './src/modules'
+            '@modules': './src/modules',
+            '@apis': './src/apis',
+            '@models': './src/models'
           }
         }
       ]

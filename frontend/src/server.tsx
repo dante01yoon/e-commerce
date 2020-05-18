@@ -6,10 +6,11 @@ import { StaticRouter } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
 import { Provider } from 'react-redux';
 import { createStore } from 'redux';
-import rootReducer from '@modules/index';
+import rootReducer from '@modules/index'; 
+import { store } from '@modules/index';
+
 import { ChunkExtractor } from '@loadable/server';
 import { ServerStyleSheet } from 'styled-components';
-import { composeWithDevTools } from 'redux-devtools-extension';
 
 const app = express();
 
@@ -47,10 +48,9 @@ app.get('*', (req, res) => {
   const webExtractor = new ChunkExtractor({ statsFile: webStats });
 
   const context = {};
-
-  const store = createStore(rootReducer, composeWithDevTools());    
+  const newStore = createStore(rootReducer); 
   const jsx = webExtractor.collectChunks(
-    <Provider store={store}>
+    <Provider store={newStore}>
       <StaticRouter location={req.url} context={context}>
         <App/>
       </StaticRouter>

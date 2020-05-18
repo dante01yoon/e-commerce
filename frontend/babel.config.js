@@ -41,8 +41,11 @@ module.exports = api => {
             '@pages': './src/pages',
             '@store': './src/store',
             '@reducers': './src/store/reducers',
-            '@theme': 'src/theme',
+            '@theme': './src/theme',
             '@util': './src/util',
+            '@modules': './src/modules',
+            '@apis': './src/apis',
+            '@models': './src/models'
           }
         }
       ]

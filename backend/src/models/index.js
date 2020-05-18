@@ -10,7 +10,4 @@ db.ROLES = ["users", "admin", "moderator"];
 
 
 
-module.exports = {
-  db
-
-};
+module.exports = db; 

@@ -26,3 +26,8 @@
  3. yarn
  4. yarn start
  5. enjoy! 
+
+
+ ℹ️ Branch info 
+ ##### only basic mark up  && no state management tools 👉 master-sub 
+ ##### using redux 👉 redux 

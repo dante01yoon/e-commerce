@@ -7,12 +7,14 @@ export const PageContainer:FC<{
   children
 }) => {
   return(
-    <Styled.Container>
+    <>
       <Gnb/>
       <Styled.Main>
-        {children}
+        <Styled.Container>
+          {children}
+        </Styled.Container>
       </Styled.Main>
-    </Styled.Container>
+    </>
   );
 }
 

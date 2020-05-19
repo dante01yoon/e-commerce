@@ -1,4 +1,4 @@
-type SHOP_DATA = {
+export type SHOP_DATA_TYPE = {
   id: number,
   title: string,
   routeName: string,
@@ -10,7 +10,7 @@ type SHOP_ITEM = {
   imageUrl: string,
   price: number
 }
-type INITIAL_ITEM = {
+export type INITIAL_ITEM = {
   id: number,
   name: string,
   title: string,
@@ -19,9 +19,9 @@ type INITIAL_ITEM = {
   route?: string
 }
 export type CARD_ITEM_TYPE =INITIAL_ITEM;
-type INITIAL_DATA = INITIAL_ITEM[]; 
+export type INITIAL_DATA_TYPE = INITIAL_ITEM[]; 
 
-export const SHOP_DATA: SHOP_DATA[] = [
+export const SHOP_DATA: SHOP_DATA_TYPE[] = [
   {
     id: 1,
     title: 'Hats',
@@ -271,9 +271,9 @@ export const SHOP_DATA: SHOP_DATA[] = [
 
 export default SHOP_DATA;
 
-const buildInitialData = (): INITIAL_DATA =>{ 
+const buildInitialData = (): INITIAL_DATA_TYPE =>{ 
   const ItemIdStore = new Map<number,boolean>();
-  let INITIAL_DATA_ARRAY:INITIAL_DATA[] = SHOP_DATA.map((category: SHOP_DATA) => {
+  let INITIAL_DATA_ARRAY:INITIAL_DATA_TYPE[] = SHOP_DATA.map((category: SHOP_DATA_TYPE) => {
     let items: INITIAL_ITEM[] = new Array<INITIAL_ITEM>();
     for(let item of category.items){
       let id = ~~ 1*Math.floor(Math.random()* 1 * 0xffce);
@@ -291,11 +291,11 @@ const buildInitialData = (): INITIAL_DATA =>{
     }
     return items; 
   });
-  let INITIAL_DATA:INITIAL_DATA = new Array<INITIAL_ITEM>()
+  let INITIAL_DATA:INITIAL_DATA_TYPE = new Array<INITIAL_ITEM>()
   for( let SHOP_DATA of INITIAL_DATA_ARRAY) {
     INITIAL_DATA = [...INITIAL_DATA, ...SHOP_DATA]
   }
   return INITIAL_DATA; 
 }
-export const INITIAL_DATA : INITIAL_DATA = buildInitialData().sort((a,b)=> a.id - b.id);  
+export const INITIAL_DATA : INITIAL_DATA_TYPE = buildInitialData().sort((a,b)=> a.id - b.id);  
 console.log('initial_data: ', INITIAL_DATA); 

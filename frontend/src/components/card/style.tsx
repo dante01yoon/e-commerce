@@ -46,9 +46,7 @@ export const SemiContainer = styled.div`
   align-items: flex-start; 
 `
 export const Container = styled.div`
-  overflow: auto; 
   margin: 0 auto;
-  width: 1128px;
   display:flex;
   justify-content: center;
   flex-flow: row wrap;

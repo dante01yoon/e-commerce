@@ -23,8 +23,4 @@ const ShopPage: FC = () => {
   )
 }
 
-<<<<<<< HEAD
 export default ShopPage;
-=======
-export default ShopPage;
->>>>>>> 3b9f89e1b144d476148dbe537910e7c4f339f5e9

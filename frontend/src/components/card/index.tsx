@@ -1,11 +1,14 @@
 import React, { FC } from 'react';
-import { useSelector } from 'react-redux';
-import { RootState } from '@modules/index';
 import * as Styled from './style';
+import { INITIAL_DATA, CARD_ITEM_TYPE, INITIAL_DATA_TYPE } from 'src/models/data'; 
 
-import { INITIAL_DATA, CARD_ITEM_TYPE } from 'src/models/data'; 
-export const CardContainer:FC = () => {
-  const initialData = useSelector((state: RootState) => state.initial.data);
+export const CardContainer:FC<{
+  data: INITIAL_DATA_TYPE
+}> = ({
+  data
+}) => {
+  const initialData = data; 
+  console.log('initialData', initialData);
   let items = new Array(); 
   let slicedData = initialData.slice();
   while(slicedData.length > 0){

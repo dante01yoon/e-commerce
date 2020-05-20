@@ -1,13 +1,13 @@
 import React, { FC } from 'react';
 import * as Styled from './style';
 const { 
-    LoadingContainer,
+    ProgressContainer,
     GaiaCircle,
     MotherCircle,
     ChildCircle,
     InnerCircle
 } = Styled;
-export const LoadingBar:FC<{
+export const ProgressBar:FC<{
     color?: string; 
     size?: string; 
     content?: string; 
@@ -17,7 +17,7 @@ export const LoadingBar:FC<{
     content 
 }) => {
     return(
-        <LoadingContainer>
+        <ProgressContainer>
             <GaiaCircle>
                 <MotherCircle>
                     <ChildCircle>
@@ -27,7 +27,7 @@ export const LoadingBar:FC<{
                     </ChildCircle>
                 </MotherCircle>
             </GaiaCircle>
-        </LoadingContainer>
+        </ProgressContainer>
     )
 }
 

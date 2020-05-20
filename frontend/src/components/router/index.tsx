@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
 import { Switch, Route } from 'react-router-dom';
 import loadable from '@loadable/component'; 
-
+import { ProgressBar } from 'src/components/progress';
 const HomePage = loadable(() => import(/* webpackChunkName: "HomePage" */'../../pages/homepage'));
 const ItemPage = loadable(() => import(/* webpackChunkName: "ItemPage" */'../../pages/item'));
 const ShopPage = loadable(() => import(/* webpackChunkName: "ShopPage" */ '../../pages/shop')); 
@@ -15,6 +15,7 @@ export const AppRouter: FC = () => {
         <Route path="/shop" render={() => <ShopPage/>}/>
         <Route path="/shop/:category" render={() => <ShopPage/>}/>
         <Route path="/shop/:category/:id" render={() => <ShopPage/>}/>
+        <Route path="/test" component={ProgressBar}/> 
         <Route render={()=> <ErrorPage/>}/>
       </Switch>
   )

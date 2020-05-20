@@ -25,15 +25,15 @@ const rotateRev = keyframes`
 `
 const pulse = keyframes`
   0% {
-    -moz-transform: scale(0.1);
+    transform: scale(0.1);
     opacity: 0.2;
   }
   50% {
-    -moz-transform: scale(1);
+    transform: scale(1);
     opacity: 0.8;
   }
   100% {
-    -moz-transform: scale(0.1);
+    transform: scale(0.1);
     opacity: 0.2;
   }
 `;
@@ -79,7 +79,7 @@ export const ChildCircle = styled.div`
 export const InnerCircle = styled.div`
   width: 85%;
   height: 85%;
-  background-color: rgb(74,124,134);
+  background-color: rgb(133,224,242);
   border-radius: 50%;
   opacity: 1;
   -moz-animation: ${pulse} 1.5s infinite ease-in;
@@ -89,3 +89,13 @@ export const InnerCircle = styled.div`
   justify-content: center;
   align-items: center;
 `
+export const InnerMostCircle = styled.div`
+  width: 85%;
+  height: 85%;
+  background-color: rgb(74,124,134);
+  border-radius: 50%;
+  opacity: 1;
+  -moz-animation: ${pulse} 1.5s infinite ease-in;
+  -webkit-animation: ${pulse} 1.5s infinite ease-in;
+  animation: ${pulse} 1.5s infinite linear;
+`;

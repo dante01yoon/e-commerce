@@ -5,7 +5,8 @@ const {
     GaiaCircle,
     MotherCircle,
     ChildCircle,
-    InnerCircle
+    InnerCircle,
+    InnerMostCircle
 } = Styled;
 export const ProgressBar:FC<{
     color?: string; 
@@ -22,6 +23,7 @@ export const ProgressBar:FC<{
                 <MotherCircle>
                     <ChildCircle>
                         <InnerCircle>
+                            <InnerMostCircle/>
                             {content} 
                         </InnerCircle>
                     </ChildCircle>

@@ -1,6 +1,9 @@
 ### E-commerce project using webpack
 
-#### Default stack
+ ![s4 cover image](https://github.com/risel/e-commerce/blob/master/frontend/src/asset/s4_cover.png)
+
+
+#### Default tech stack
  1.typescript
  2.react
  3.styled-components
@@ -9,7 +12,7 @@
  6.webpack (CRA won't be used)
 -------------------------------
 
-#### listed branches below will be implemented in turn
+#### optional tech stack will be tried in turn. 
 
  1.redux-saga
  2. jest

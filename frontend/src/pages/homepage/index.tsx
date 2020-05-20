@@ -5,14 +5,14 @@ import { CardContainer } from 'src/components/card';
 import { RootState } from 'src/modules';
 const HomePage:FC =() => {
   const dispatch = useDispatch();
-  const initialData =    useSelector((state: RootState) => state.initial.data);
+  const { data, isLoading} = useSelector((state: RootState) => state.initial);
 
   useEffect(() => {
     dispatch(load()); 
   },[])
     return(
     <>
-      <CardContainer data={initialData}/>
+      <CardContainer data={data} isLoading={isLoading}/>
     </> 
   )
 }

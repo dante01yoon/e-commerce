@@ -49,6 +49,7 @@ export const GaiaCircle = styled.div`
   display: flex;
   justify-content: center;
   align-items:  center;
+  box-shadow: 0 0 20px rgb(133,224,242);
 `;
 
 export const MotherCircle = styled.div`
@@ -62,6 +63,8 @@ export const MotherCircle = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  box-shadow: 0 0 20px rgb(133,224,242);
+
 `
 
 export const ChildCircle = styled.div`
@@ -75,6 +78,7 @@ export const ChildCircle = styled.div`
   display: flex;
   justify-content: center;
   align-items: center; 
+  box-shadow: 0 0 20px rgb(133,224,242);
 `
 export const InnerCircle = styled.div`
   width: 85%;
@@ -88,6 +92,7 @@ export const InnerCircle = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  box-shadow: 0 0 20px rgb(133,224,242);
 `
 export const InnerMostCircle = styled.div`
   width: 85%;

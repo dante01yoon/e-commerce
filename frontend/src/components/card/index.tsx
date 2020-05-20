@@ -1,14 +1,15 @@
 import React, { FC } from 'react';
 import * as Styled from './style';
 import { INITIAL_DATA, CARD_ITEM_TYPE, INITIAL_DATA_TYPE } from 'src/models/data'; 
-
+import { ProgressBar } from '@components/progress';
 export const CardContainer:FC<{
-  data: INITIAL_DATA_TYPE
+  data: INITIAL_DATA_TYPE,
+  isLoading: boolean
 }> = ({
-  data
+  data,
+  isLoading 
 }) => {
   const initialData = data; 
-  console.log('initialData', initialData);
   let items = new Array(); 
   let slicedData = initialData.slice();
   while(slicedData.length > 0){
@@ -26,7 +27,13 @@ export const CardContainer:FC<{
   return(
     <section>
       <Styled.Container>
-        {items}
+        {
+          isLoading 
+            ? 
+          <ProgressBar/>
+            :
+          items
+        }
       </Styled.Container>
     </section>
   )

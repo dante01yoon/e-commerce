@@ -1,11 +1,9 @@
 import React, {FC} from 'react';
 
-const ErrorPage:FC = ({}) => {
+export const ErrorComponent:FC = ({}) => {
  return(
    <>
     <p>404 Not Found</p>
    </>
  ) 
 }
-
-export default ErrorPage; 

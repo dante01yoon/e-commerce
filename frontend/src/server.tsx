@@ -6,8 +6,11 @@ import { StaticRouter } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
 import { Provider } from 'react-redux';
 import { createStore } from 'redux';
+import rootReducer from '@modules/index'; 
+import { store } from '@modules/index';
+
 import { ChunkExtractor } from '@loadable/server';
-import { ServerStyleSheet, StyleSheetManager } from 'styled-components';
+import { ServerStyleSheet } from 'styled-components';
 
 const app = express();
 
@@ -38,7 +41,6 @@ app.use(express.static(path.resolve(__dirname)));
 
 app.get('*', (req, res) => {
   const sheet = new ServerStyleSheet(); 
-  const styleTags = sheet.getStyleTags(); 
   const nodeStats = path.resolve(__dirname, './node/loadable-stats.json');
   const webStats = path.resolve(__dirname, './web/loadable-stats.json');
   const nodeExtractor = new ChunkExtractor({ statsFile: nodeStats });
@@ -46,42 +48,40 @@ app.get('*', (req, res) => {
   const webExtractor = new ChunkExtractor({ statsFile: webStats });
 
   const context = {};
-
-
-  try {
-    const styledHtml = sheet.collectStyles(
+  const newStore = createStore(rootReducer); 
+  const jsx = webExtractor.collectChunks(
+    <Provider store={newStore}>
       <StaticRouter location={req.url} context={context}>
-        <App />
+        <App/>
       </StaticRouter>
-    )
-    const jsx = webExtractor.collectChunks(styledHtml);
-    const html = renderToString(jsx);
-    
-    const helmet = Helmet.renderStatic();
-
-    res.set('content-type', 'text/html');
-    res.send(`
-      <!DOCTYPE html>
-        <html lang="en">
-          <head>
-            <meta name="viewport" content="width=device-width, user-scalable=no">
-            <meta name="google" content="notranslate">
-            ${helmet.title.toString()}
-            ${webExtractor.getLinkTags()}
-            ${webExtractor.getStyleTags()}
-          </head>
-          <body>
-            <div id="root">${html}</div>
-            ${webExtractor.getScriptTags()}
-          </body>
-        </html>
-    `);
-
-    } catch(error){
-      console.log(error);
-    } finally{
-      sheet.seal(); 
+    </Provider>
+  );
+  const html = renderToString(sheet.collectStyles(jsx));
+  const helmet = Helmet.renderStatic();
+  const styles = sheet.getStyleTags(); 
+  const collected = {
+    script: webExtractor.getScriptTags(),
+    link: webExtractor.getLinkTags(),
+    style: webExtractor.getStyleTags() + styles 
   }
+  res.set('content-type', 'text/html');
+  res.send(`
+    <!DOCTYPE html>
+      <html lang="en">
+        <head>
+          <meta name="viewport" content="width=device-width, user-scalable=no">
+          <meta name="google" content="notranslate">
+          ${helmet.title.toString()}
+          ${webExtractor.getLinkTags()}
+          ${webExtractor.getStyleTags() + styles}
+        </head>
+        <body>
+          <div id="root">${html}</div>
+          ${webExtractor.getScriptTags() }
+        </body>
+      </html>
+  `);
+
 });
 
 app.listen(5000, () => console.log('Server started http://localhost:5000'));

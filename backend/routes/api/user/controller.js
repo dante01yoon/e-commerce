@@ -40,8 +40,3 @@ exports.assignAdmin = (req, res) => {
             }) 
         ); 
 }
-
-exports.controller = {
- list,
- assignAdmin    
-}

@@ -2,7 +2,7 @@ const jwt = require('jsonwebtoken');
 const User = require('../../../src/models/user')
 
 /*
-    POST /api/auth/register 
+    POST /api/auth/register
     {
         username,
         password
@@ -10,7 +10,9 @@ const User = require('../../../src/models/user')
 */
 
 exports.register  = (req,res) => {
+    console.log('register');
     const { username, password } = req.body;
+    console.log('username: ', username, 'password: ', password);
     let newUser = null; 
 
     //create a new user if doesn't exist 
@@ -67,9 +69,10 @@ exports.login = (req, res) => {
     const {username, password} = req.body
     const secret = req.app.get('jwt-secret');
 
-    //check the user info & generae the jwt
+    //check the user info & generate the jwt
     const check = (user) => {
         if(!user){
+            //user not exist; 
             throw new Error('login failed')
         } else {
             if(user.verify(password)){
@@ -83,7 +86,7 @@ exports.login = (req, res) => {
                         secret,
                         {
                             expiresIn: '7d',
-                            issuer: 's4.com',
+                            issuer: 'localhost:5000',
                             subject: 'userInfo'
                         }, (err, token) => {
                             if(err) reject(err)
@@ -97,6 +100,7 @@ exports.login = (req, res) => {
             }
         }
     }
+
     //respond the token
     const respond = (token) => {
         res.json({
@@ -128,35 +132,42 @@ exports.register = (req, res) => {
         if(user) throw new Error('username exists');
         else return User.create(username, password);
     }
-}
-
-// count the number of the user
-const count = (user) => {
-    newUser = user;
-    return User.count({}).exec();
-}
-
-//assign admin if count is 1 
-const assign = ( count ) => {
-    if(count === 1) {
-        return newUser.assignAdmin()
-    } else {
-        return Promise.resolve(false); 
+        
+    // count the number of the user
+    const count = (user) => {
+        newUser = user;
+        return User.count({}).exec();
     }
-}
 
-//respond to the client
-const respond = (isAdmin) => {
-    res.json({
-        message: 'registered sucessfully',
-        admin: isAdmin? true : false 
-    })
-}
-// run when there is an error( username exists)
-const onError = (error) => {
-    res.status(409).json({
-        message: error.message
-    })
+    //assign admin if count is 1 
+    const assign = ( count ) => {
+        if(count === 1) {
+            return newUser.assignAdmin()
+        } else {
+            return Promise.resolve(false); 
+        }
+    }
+
+    //respond to the client
+    const respond = (isAdmin) => {
+        res.json({
+            message: 'registered sucessfully',
+            admin: isAdmin? true : false 
+        })
+    }
+    // run when there is an error( username exists)
+    const onError = (error) => {
+        res.status(409).json({
+            message: error.message
+        })
+    }
+    //check username duplication
+    User.findOneByUsername(username)
+        .then(create)
+        .then(count)
+        .then(assign)
+        .then(respond)
+        .catch(onError); 
 }
 
 /*
@@ -168,11 +179,3 @@ exports.check = (req, res) =>
         success: true,
         info: req.decode
     });
-
-//check username duplication
-User.findOneByUsername(username)
-    .then(create)
-    .then(count)
-    .then(assign)
-    .then(respond)
-    .catch(onError); 

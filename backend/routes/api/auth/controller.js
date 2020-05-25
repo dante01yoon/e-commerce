@@ -128,37 +128,47 @@ exports.register = (req, res) => {
         if(user) throw new Error('username exists');
         else return User.create(username, password);
     }
-}
 
-// count the number of the user
-const count = (user) => {
-    newUser = user;
-    return User.count({}).exec();
-}
 
-//assign admin if count is 1 
-const assign = ( count ) => {
-    if(count === 1) {
-        return newUser.assignAdmin()
-    } else {
-        return Promise.resolve(false); 
+    // count the number of the user
+    const count = (user) => {
+        newUser = user;
+        return User.count({}).exec();
     }
-}
 
-//respond to the client
-const respond = (isAdmin) => {
-    res.json({
-        message: 'registered sucessfully',
-        admin: isAdmin? true : false 
-    })
-}
-// run when there is an error( username exists)
-const onError = (error) => {
-    res.status(409).json({
-        message: error.message
-    })
-}
+    //assign admin if count is 1 
+    const assign = ( count ) => {
+        if(count === 1) {
+            return newUser.assignAdmin()
+        } else {
+            return Promise.resolve(false); 
+        }
+    }
 
+    //respond to the client
+    const respond = (isAdmin) => {
+        res.json({
+            message: 'registered sucessfully',
+            admin: isAdmin? true : false 
+        })
+    }
+    // run when there is an error( username exists)
+    const onError = (error) => {
+        res.status(409).json({
+            message: error.message
+        })
+    }
+
+
+    //check username duplication
+    User.findOneByUsername(username)
+        .then(create)
+        .then(count)
+        .then(assign)
+        .then(respond)
+        .catch(onError); 
+
+}
 /*
     GET /api/auth/check
 */
@@ -169,10 +179,3 @@ exports.check = (req, res) =>
         info: req.decode
     });
 
-//check username duplication
-User.findOneByUsername(username)
-    .then(create)
-    .then(count)
-    .then(assign)
-    .then(respond)
-    .catch(onError); 

@@ -18,7 +18,6 @@ exports.list = (req, res) => {
                 res.json({users})
             }
         )
-
 }
 
 /*
@@ -41,7 +40,3 @@ exports.assignAdmin = (req, res) => {
         ); 
 }
 
-exports.controller = {
- list,
- assignAdmin    
-}

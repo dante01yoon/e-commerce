@@ -3,6 +3,7 @@ const bodyParser = require("body-parser");
 const morgan = require("morgan");
 const cors = require("cors");
 const app = express();
+const mongoose = require("mongoose");
 const config = require('../config');
 const port = process.env.PORT || 5001; 
 const { dummy } = require('./models/data')
@@ -38,7 +39,7 @@ CONNECT TO MONGODB SERVER
 ======================*/ 
 
 mongoose.connect(config.mongodbUri); 
-const db = mongose.connection
+const db = mongoose.connection
 db.on('error',console.error);
 db.once('open', () => {
   console.log('connected to mongodb server'); 

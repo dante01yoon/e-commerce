@@ -39,4 +39,3 @@ exports.assignAdmin = (req, res) => {
             }) 
         ); 
 }
-

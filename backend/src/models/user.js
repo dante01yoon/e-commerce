@@ -39,7 +39,7 @@ User.methods.verify = function(password){
                         .update(password)
                         .digest('base64'); 
                         
-    return this.password === password; 
+    return this.password === encrypted; 
 }; 
 
 User.methods.assignAdmin = function(){

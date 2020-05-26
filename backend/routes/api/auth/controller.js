@@ -39,6 +39,13 @@ exports.register  = (req,res) => {
             return Promise.resolve(false); 
         }
     }
+    //respond to the client 
+    const respond = (isAdmin) => {
+        res.json({
+            message: 'registered successfully',
+            admin: isAdmin? true: false
+        });
+    }
     // run when there is an error (username exists)
     const onError = (error) => {
         res.status(409).json({
@@ -72,9 +79,10 @@ exports.login = (req, res) => {
     //check the user info & generate the jwt
     const check = (user) => {
         if(!user){
-            //user not exist; 
-            throw new Error('login failed')
+            //user not exist 
+            throw new Error('user not exists. login failed')
         } else {
+            console.log('user exist');  
             if(user.verify(password)){
                 const p = new Promise((resolve, reject) => {
                     jwt.sign(
@@ -93,9 +101,10 @@ exports.login = (req, res) => {
                             resolve(token)
                         }
                     );
-                })
+                });
                 return p;
             } else {
+                console.log('password wrong');
                 throw new Error('login failed');
             }
         }

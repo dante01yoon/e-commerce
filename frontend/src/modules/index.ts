@@ -19,7 +19,6 @@ export const store = createStore(
   rootReducer,
   enhancer
 )
-
 sagaMiddleware.run(rootSaga); 
 export default rootReducer;
 

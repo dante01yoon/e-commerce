@@ -6,7 +6,6 @@ const app = express();
 const mongoose = require("mongoose");
 const config = require('../config');
 const port = process.env.PORT || 5001; 
-const mongoose = require('mongoose');
 const { dummy } = require('./models/data')
 var corsOptions = {
   origin: "http://localhost:5000"

@@ -33,12 +33,22 @@ export const RightNav = styled.div`
   float: right;
   margin-right: 32px; 
 `
+export const IconWrapper = styled.div`
+  display:flex;
+  height: 100%;
+  align-items: center; 
+  & svg{
+    display:block; 
+  }
+  
+`; 
 const Styled = {
   Container,
   Gnb,
   MainLogo,
   MenuContainer,
   MenuItem, 
-  RightNav
+  RightNav,
+  IconWrapper
 }
 export default Styled ; 

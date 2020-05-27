@@ -1,6 +1,6 @@
 import {takeLatest, takeEvery, call, put, delay } from 'redux-saga/effects'; 
 import { initialFetch } from '@apis/index'; 
-import {load,done, error} from 'src/redux/modules/initiation'; 
+import {load, done, error} from 'src/redux/modules/initiation'; 
 import { buildInitialData } from 'src/libs/dataProccesing';
 
 

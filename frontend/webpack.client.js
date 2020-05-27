@@ -43,8 +43,6 @@ const getConfig = target => ({
             loader: 'ts-loader',
             options: {
               getCustomTransformers: () => ({ before: [styledComponentsTransformer] }),
-              cacheDirectory: true,
-              plugins: ['react-hot-loader/babel']
             },
           },
         ],

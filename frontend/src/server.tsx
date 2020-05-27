@@ -7,8 +7,8 @@ import { StaticRouter } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
 import { Provider } from 'react-redux';
 import { createStore } from 'redux';
-import rootReducer from '@modules/index'; 
-import { store } from '@modules/index';
+import rootReducer from 'src/redux/modules/index'; 
+import { store } from 'src/redux/modules/index';
 
 import { ChunkExtractor } from '@loadable/server';
 import { ServerStyleSheet } from 'styled-components';
@@ -94,7 +94,7 @@ function renderFullPage(collected : {
   script: string,
   link: string,
   style: string 
-} , preloadedState){
+} , preloadedState?: any){
   const { helmet, html, script, link, style} = collected; 
   return `
     <!DOCTYPE html>
@@ -110,15 +110,15 @@ function renderFullPage(collected : {
         <div id="root">${html}</div>
         ${script}
         <script>
-          window.__PRELOADED_STATE__ = ${JSON.stringify(preloadedState).replace(
-            /</g,
-            '\\u003c'
-          )}
+          
         </script>
       </body>
     </html>
   `
 }
-
+// window.__PRELOADED_STATE__ = ${JSON.stringify(preloadedState).replace(
+//   /</g,
+//   '\\u003c'
+// )}
 
 app.listen(5000, () => console.log('Server started http://localhost:5000'));

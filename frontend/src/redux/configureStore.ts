@@ -20,7 +20,12 @@ const configureStore = (initialState: any) => {
     enhancer
   );
   sagaMiddleware.run(rootSaga); 
-
+  if(module.hot){
+    module.hot.accept('./modules',() => {
+      const nextRootReducer = rootReducer;
+      store.replaceReducer(nextRootReducer); 
+    })
+  }
   return store; 
 }
 

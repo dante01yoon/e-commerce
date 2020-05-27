@@ -14,7 +14,11 @@ const request = async<T>(config:AxiosRequestConfig): Promise<APIResponse<T>> => 
     return [error, undefined];
   }
 }
-
+// {
+// headers: 
+// "Content-type": "Application/json",
+// "Authorization": `Bearer ${your-token}` 
+// }
 const GET = <T>(url: string, params?: object, config?:AxiosRequestConfig): Promise<APIResponse<T>> => 
   request({...config, method: 'GET', url,params});
 

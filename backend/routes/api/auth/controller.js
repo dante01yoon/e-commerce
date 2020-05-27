@@ -132,7 +132,6 @@ exports.register = (req, res) => {
         if(user) throw new Error('username exists');
         else return User.create(username, password);
     }
-<<<<<<< HEAD
 
 
     // count the number of the user
@@ -150,24 +149,6 @@ exports.register = (req, res) => {
         }
     }
 
-=======
-        
-    // count the number of the user
-    const count = (user) => {
-        newUser = user;
-        return User.count({}).exec();
-    }
-
-    //assign admin if count is 1 
-    const assign = ( count ) => {
-        if(count === 1) {
-            return newUser.assignAdmin()
-        } else {
-            return Promise.resolve(false); 
-        }
-    }
-
->>>>>>> 377802d0374112ac40224de05e0da4bdafe9d417
     //respond to the client
     const respond = (isAdmin) => {
         res.json({
@@ -181,17 +162,6 @@ exports.register = (req, res) => {
             message: error.message
         })
     }
-<<<<<<< HEAD
-=======
-    //check username duplication
-    User.findOneByUsername(username)
-        .then(create)
-        .then(count)
-        .then(assign)
-        .then(respond)
-        .catch(onError); 
-}
->>>>>>> 377802d0374112ac40224de05e0da4bdafe9d417
 
 
     //check username duplication
@@ -212,7 +182,3 @@ exports.check = (req, res) =>
         success: true,
         info: req.decode
     });
-<<<<<<< HEAD
-
-=======
->>>>>>> 377802d0374112ac40224de05e0da4bdafe9d417

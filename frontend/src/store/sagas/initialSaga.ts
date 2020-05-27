@@ -9,7 +9,6 @@ function* fetchInitialData(){
     yield console.log('data fetched');
     const data = yield call(initialFetch);
     yield console.log('data responsed'); 
-    yield delay(2000);
     yield put(done(buildInitialData(data[1]))); 
      
   } catch(e){

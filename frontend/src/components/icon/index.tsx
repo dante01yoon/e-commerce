@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import { IconType, iconMap} from './chart';
+import { IconType, iconMapKey, iconMap} from './chart';
 import * as Styled from './style'; 
 
 const { 
@@ -7,21 +7,21 @@ const {
 } = Styled; 
 export const Icon: FC<{
     type: IconType,
-    color: string, 
-    backgroundColor: string,
-    size: number,
-    viewBox: string     
+    color?: string, 
+    backgroundColor?: string,
+    size?: number,
+    viewBox?: string     
 }> = ({
-    type = iconMap.blank,
+    type = iconMapKey.blank,
     color = 'black',
-    backgroundColor = 'white', 
-    size = 24
-     
+    backgroundColor = 'transparent', 
+    size = 24,
+    viewBox = '0'
 })=> {
     return(
-        <IconBox color={color} backgroundColor={backgroundColor}>
-            <svg width={size} height={size} viewBox={}>
-                <path d={type}/>
+        <IconBox backgroundColor={backgroundColor}>
+            <svg width={size} height={size} viewBox={viewBox}>
+                <path d={iconMap[type as IconType]} fill={color}/>
             </svg>
         </IconBox>
     )    

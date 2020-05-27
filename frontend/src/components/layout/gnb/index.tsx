@@ -1,8 +1,9 @@
 import React, { FC, ReactNode } from 'react';
 import * as Styled from './style';
 import mainLogo from 'src/asset/mainlogo.png'; 
-import { SmartLink } from 'src/components/smart-link'; 
-import AddShoppingCartIcon from '@material-ui/icons/AddShoppingCart';
+import { SmartLink } from '@components/smart-link'; 
+import { Icon } from '@components/icon';
+import { iconMapKey } from '@components/icon/chart'; 
 export const GnbContainer: FC<{
   children: ReactNode
 }> = ({
@@ -44,9 +45,7 @@ export const Gnb: FC = () => {
               </SmartLink>
               <SmartLink href="/">
                 <Styled.MenuItem>
-                  <Styled.IconWrapper>
-                    <AddShoppingCartIcon /> 
-                  </Styled.IconWrapper>
+                  <Icon type={iconMapKey.cart} /> 
                 </Styled.MenuItem>
               </SmartLink>
             </Styled.MenuContainer>

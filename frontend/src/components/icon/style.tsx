@@ -1,17 +1,20 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 export const IconBox = styled.div<{
     color?: string,
     size?: number 
     backgroundColor?: string
 }>`
-    
+    height:100%;
+    display:flex; 
+    align-items: center;
     & svg{
-        
+        display:block;
+        background-color: ${p => {
+            const {backgroundColor} = p 
+            return css`${backgroundColor}` 
+        }};
         & > path {
-            color: ${p => p.theme.colors.p.color};
-            backgroundColor = ${p => p.theme.colors.p.backgroudnColor};
-            size: ${p=> p.size}; 
         }
     }
         

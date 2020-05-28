@@ -1,25 +1,32 @@
-import React, { FC } from 'react';
+import React, { FC, forwardRef, RefObject } from 'react';
 import * as Styled from './style';
 
 const { 
   ModalBox
 } = Styled; 
-export const CartModal:FC<{
+
+type Props = {
+  color?: string;
   isModalOpen: boolean
-}> = ({
-  isModalOpen 
-}) => {
+}
+type Ref = HTMLDivElement | null; 
+export const CartModal = forwardRef<Ref,Props>((
+  props,
+  ref
+) => {
+  const { color = '#ffffff', isModalOpen } = props; 
+
 
   return(
     <>
       {
         isModalOpen && (
-          <ModalBox>
-
+          <ModalBox color={color} ref={ref}>
+            
           </ModalBox>
             
         )
       }
     </>
   )
-}
+}); 

@@ -1,11 +1,15 @@
 import styled from 'styled-components';
 
-export const ModalBox = styled.div`
+export const ModalBox = styled.div<{
+  color?: string
+}>`
   border: 1px solid ${p=> p.theme.colors.lightBlack};
   display: flex; 
   flex-direction: column;
-  position: absolute;
-  
+  background-color: ${p=>p.color}; 
+  position: relative;
+  top: -8px;
+  right: -248px;
   
   width: 240px;
   height: 330px; 

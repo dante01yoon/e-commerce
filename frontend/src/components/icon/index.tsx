@@ -1,17 +1,18 @@
-import React, { FC } from 'react';
+import React, { FC, RefObject, forwardRef } from 'react';
 import { IconType, iconMapKey, iconMap} from './chart';
 import * as Styled from './style'; 
-
 const { 
     IconBox 
 } = Styled; 
+
 export const Icon: FC<{
+    ref?: RefObject<HTMLDivElement>
     type: IconType,
     color?: string, 
     backgroundColor?: string,
     size?: number,
     viewBox?: string     
-}> = ({
+}> = forwardRef(({
     type = iconMapKey.blank,
     color = 'black',
     backgroundColor = 'transparent', 
@@ -25,6 +26,6 @@ export const Icon: FC<{
             </svg>
         </IconBox>
     )    
-}
+});
 
 export default Icon;

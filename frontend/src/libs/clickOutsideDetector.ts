@@ -1,6 +1,6 @@
 import { useEffect, MouseEvent,RefObject} from 'react';
  
-export const useOutsider = (ref: RefObject<HTMLElement>,fn: () => void) => {
+export const useOutsider = <T extends HTMLElement>(ref: RefObject<T>,fn: () => void) => {
   useEffect(() => {
     function handleClick(event: CustomEvent<MouseEvent>) {
       console.log(ref); 

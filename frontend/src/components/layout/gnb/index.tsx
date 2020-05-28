@@ -20,12 +20,12 @@ export const GnbContainer: FC<{
 
 export const Gnb: FC = () => {
   const [ isModalOpen, setModalOpen] = useState(false); 
-  const ref = React.useRef<HTMLDivElement | null>(null); 
+  const ref = React.createRef<HTMLDivElement>(); 
   console.log('ref: ', ref);
   const checkModalOpened = () => {
     isModalOpen && setModalOpen(false);
   }
-  useOutsider(ref, checkModalOpened); 
+  useOutsider<HTMLDivElement>(ref, checkModalOpened); 
   const openModal = (e:MouseEvent) => {
     e.preventDefault();
     !isModalOpen && setModalOpen(true);

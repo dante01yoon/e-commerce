@@ -31,5 +31,11 @@ export const typo: Typo = Object.freeze({
     color: 1C2D3D;
     line-height: 28px;
     font-size: 24px;
-  `
+  `,
+  item16Desblack : `
+    ${NORMAL}
+    color: 1C2D3D;
+    line-height: ${DEFAULT_LINE_HEIGHT}; 
+    font-size: 14px;
+  `,
 })

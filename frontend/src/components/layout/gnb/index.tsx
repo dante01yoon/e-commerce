@@ -20,12 +20,11 @@ export const GnbContainer: FC<{
 
 export const Gnb: FC = () => {
   const [ isModalOpen, setModalOpen] = useState(false); 
-  const ref = React.useRef<HTMLDivElement | null>(null); 
-  console.log('ref: ', ref);
+  const ref = React.createRef<HTMLDivElement>(); 
   const checkModalOpened = () => {
     isModalOpen && setModalOpen(false);
   }
-  useOutsider(ref, checkModalOpened); 
+  useOutsider<HTMLDivElement>(ref, checkModalOpened); 
   const openModal = (e:MouseEvent) => {
     e.preventDefault();
     !isModalOpen && setModalOpen(true);
@@ -62,7 +61,7 @@ export const Gnb: FC = () => {
                   <Icon type={iconMapKey.cart} ref={ref} /> 
                 </Styled.MenuItem>
               </SmartLink>
-              <CartModal isModalOpen={isModalOpen } /> 
+              <CartModal isModalOpen={isModalOpen} ref={ref}/> 
             </Styled.MenuContainer>
         </Styled.RightNav>
       </Styled.Gnb>

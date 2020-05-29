@@ -10,7 +10,8 @@ export const ContentBox = styled.div`
   color: white;
   opacity: 0;
   display: block;   
-  background-color: ${p => p.theme.colors.lightBlack}
+  z-index:500;
+  background-color: rgba(0, 0, 0, 0.4);
   transition: all 0.3s ease 0s; 
   width: 100%; 
   box-sizing: border-box;
@@ -26,7 +27,7 @@ export const CardImage = styled.div<{
   height: 100%; 
 `; 
 export const CardItem = styled.div`
-position: relative;
+  position: relative;
   margin: 16px 8px;
   width: 272px;
   display:flex;
@@ -34,6 +35,7 @@ position: relative;
   cursor:pointer; 
   border-radius: 8px;
   &:hover ${ContentBox}{
+    
     opacity: 1; 
     + div {
       background-size: 110%; 

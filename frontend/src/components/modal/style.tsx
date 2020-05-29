@@ -18,7 +18,7 @@ export const ModalBox = styled.div<{
 `
 
 export const ItemWrapper = styled.div`
-  height:280px;
+  min-height:280px;
   display:flex;
   flex-direction: column;
   overflow-y: scroll; 
@@ -49,10 +49,4 @@ export const Description = styled.div`
   padding: 8px 8px;
   ${p => p.theme.typo.item16Desblack}
 `;
-
-// export const Styled = {
-//   ModalBox,
-//   ItemBox,
-//   ItemWrapper
-// }; 
 

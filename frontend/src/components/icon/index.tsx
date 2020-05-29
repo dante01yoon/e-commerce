@@ -6,7 +6,7 @@ const {
 } = Styled; 
 
 export const Icon: FC<{
-    ref?: RefObject<HTMLDivElement>
+    // ref?: RefObject<HTMLDivElement>
     type: IconType,
     color?: string, 
     backgroundColor?: string,

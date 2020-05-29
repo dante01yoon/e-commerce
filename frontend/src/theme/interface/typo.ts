@@ -3,4 +3,5 @@ export interface Typo{
   nav14black : string;
   detail20black : string;
   item24black: string;
+  item16Desblack: string; 
 }

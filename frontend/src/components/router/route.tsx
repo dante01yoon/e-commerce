@@ -13,8 +13,8 @@ export type RouteType = {
 const HomePage = loadable(() => import(/* webpackChunkName: "HomePage" */'../../pages/homepage'));
 const ItemPage = loadable(() => import(/* webpackChunkName: "ItemPage" */'../../pages/item'));
 const ShopPage = loadable(() => import(/* webpackChunkName: "ShopPage" */ '../../pages/shop')); 
-const ErrorPage = loadable(() => import(/* webpackChunkName: "Error" */'../../pages/error'))
-
+const ErrorPage = loadable(() => import(/* webpackChunkName: "Error" */'../../pages/error'));
+const LoginPage = loadable(() => import(/* webpackChunkName: "LoginPage" */'../../pages/login'));
 
 
 export const routes: RouteType[] = [
@@ -31,7 +31,7 @@ export const routes: RouteType[] = [
     loadable: true 
   },
   {
-    path: '/item:id',
+    path: '/item/:id',
     exact: false,
     component: ItemPage, 
     loadable: true
@@ -43,7 +43,7 @@ export const routes: RouteType[] = [
     loadable: true,
   },
   {
-    path: '/shop:category',
+    path: '/shop/:category',
     exact: false,
     component: ShopPage,
     loadable: true
@@ -52,6 +52,12 @@ export const routes: RouteType[] = [
     path: '/shop/:category/:id',
     exact: false,
     component: ShopPage,
+    loadable: true
+  },
+  {
+    path: '/login',
+    exact: false,
+    component: LoginPage,
     loadable: true
   }
 ]

@@ -11,7 +11,7 @@ export const AppRouter: FC = () => {
   return(
     <Switch>
       <Router/>
-      <Route  render={() => <ErrorPage/> } />
+      <Route render={() => <ErrorPage/> } />
     </Switch>
   )
 }

@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-
+import {IconBox } from '@components/icon/style'; 
 export const CardSection = styled.section`
 `
 export const ContentBox = styled.div`
@@ -15,6 +15,12 @@ export const ContentBox = styled.div`
   transition: all 0.3s ease 0s; 
   width: 100%; 
   box-sizing: border-box;
+  & > ${IconBox}{
+    height:auto;
+    position:absolute;
+    top:48%;
+    right: 16px;
+  }
 `;
 export const CardImage = styled.div<{
   url: string
@@ -32,7 +38,6 @@ export const CardItem = styled.div`
   width: 272px;
   display:flex;
   align-items: center; 
-  cursor:pointer; 
   border-radius: 8px;
   &:hover ${ContentBox}{
     

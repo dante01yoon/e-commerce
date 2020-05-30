@@ -1,11 +1,11 @@
-import React, { FC, RefObject, forwardRef } from 'react';
+import React, { FC, RefObject, forwardRef, ButtonHTMLAttributes } from 'react';
 import { IconType, iconMapKey, iconMap} from './chart';
 import * as Styled from './style'; 
 const { 
     IconBox 
 } = Styled; 
 type Ref = HTMLDivElement | null;
-type Props = {
+interface Props extends Omit<ButtonHTMLAttributes<HTMLDivElement>,"type">{
     type: IconType,
     color?: string,
     backgroundColor?: string,
@@ -25,13 +25,18 @@ export const Icon = forwardRef<Ref,Props>((props,ref)=> {
         color = 'black', 
         backgroundColor = 'transparent', 
         size = 24, 
-        viewBox = '0'
+        viewBox = "0",
+        onClick
     } = props; 
     
     return(
-        <IconBox backgroundColor={backgroundColor} ref={ref}>
-            <svg width={size} height={size} viewBox={viewBox}>
-                <path d={iconMap[type as IconType]} fill={color}/>
+        <IconBox 
+            backgroundColor={backgroundColor} 
+            ref={ref} 
+            onClick={onClick}
+        >
+            <svg width={size} height={size} viewBox={viewBox} fill={color}>
+                <path d={iconMap[type as IconType]} />
             </svg>
         </IconBox>
     )    

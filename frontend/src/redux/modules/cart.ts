@@ -41,7 +41,7 @@ type CART_DATA = {
 }
 
 //initial state 
-const initialState: INITIATION_DATA = {
+const initialState = {
   data: [] as INITIAL_DATA_TYPE, 
   isLoading: false,
   isError: false, 

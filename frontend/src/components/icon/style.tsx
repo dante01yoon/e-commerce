@@ -5,6 +5,7 @@ export const IconBox = styled.div<{
     size?: number 
     backgroundColor?: string
 }>`
+    cursor:pointer;
     height:100%;
     display:flex; 
     align-items: center;

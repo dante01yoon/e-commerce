@@ -16,8 +16,10 @@ export type INITIAL_ITEM = {
   title: string,
   imageUrl: string,
   price: number
-  route?: string
+  route?: string,
+  count?: number 
 }
+
 export type CARD_ITEM_TYPE =INITIAL_ITEM;
 export type INITIAL_DATA_TYPE = INITIAL_ITEM[]; 
 

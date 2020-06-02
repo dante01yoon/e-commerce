@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-
+import {IconBox } from '@components/icon/style'; 
 export const CardSection = styled.section`
 `
 export const ContentBox = styled.div`
@@ -10,10 +10,17 @@ export const ContentBox = styled.div`
   color: white;
   opacity: 0;
   display: block;   
-  background-color: ${p => p.theme.colors.lightBlack}
+  z-index:500;
+  background-color: rgba(0, 0, 0, 0.4);
   transition: all 0.3s ease 0s; 
   width: 100%; 
   box-sizing: border-box;
+  & > ${IconBox}{
+    height:auto;
+    position:absolute;
+    top:48%;
+    right: 16px;
+  }
 `;
 export const CardImage = styled.div<{
   url: string
@@ -26,14 +33,14 @@ export const CardImage = styled.div<{
   height: 100%; 
 `; 
 export const CardItem = styled.div`
-position: relative;
+  position: relative;
   margin: 16px 8px;
   width: 272px;
   display:flex;
   align-items: center; 
-  cursor:pointer; 
   border-radius: 8px;
   &:hover ${ContentBox}{
+    
     opacity: 1; 
     + div {
       background-size: 110%; 

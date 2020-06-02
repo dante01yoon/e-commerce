@@ -62,7 +62,7 @@ export const CartModal = forwardRef<Ref,Props>((
             <ItemWrapper>
               <Item information={dummy}/>
             </ItemWrapper>
-            <BaseButton/> 
+            <BaseButton>Checkout</BaseButton> 
           </ModalBox>
         )
       }

@@ -53,7 +53,7 @@ export const Gnb: FC = () => {
               <SmartLink href="/">
                 <Styled.MenuItem>Accessories</Styled.MenuItem>
               </SmartLink>
-              <SmartLink href="/">
+              <SmartLink href="/login">
                 <Styled.MenuItem>Login</Styled.MenuItem>
               </SmartLink>
               <SmartLink >

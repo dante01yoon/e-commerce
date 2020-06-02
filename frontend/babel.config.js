@@ -37,6 +37,7 @@ module.exports = api => {
           extensions: ['.ts','.tsx'],
           alias:{
             'src': './src',
+            '@redux': './redux',
             '@components': './src/components',
             '@pages': './src/pages',
             '@store': './src/store',

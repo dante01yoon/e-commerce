@@ -1,21 +1,22 @@
 import React, { FC, SyntheticEvent, ReactNode} from 'react';
 import * as Styled from './style';
 
+interface ButtonProps{
+  color?: string
+  backgroundColor?: string  
+}; 
 const {
   BaseWrapper,
   PlainButton
 } = Styled;
-export const BaseButton: FC<{
-  buttonHandler?: (e: SyntheticEvent) => void,
-  children?: ReactNode
-}> = ({
-  buttonHandler,
-  children
+export const BaseButton: FC<ButtonProps> = ({
+  children,
+  ...props
 }) => {
   
   return(
     <BaseWrapper>
-      <PlainButton onClick={buttonHandler}>
+      <PlainButton {...props} >
         {children}
       </PlainButton>
     </BaseWrapper>

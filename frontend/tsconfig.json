@@ -20,6 +20,7 @@
       "@components/*": ["./src/components/*"],
       "@pages/*": ["./src/pages/*"],
       "@store/*": ["./src/store/*"],
+      "@redux/*": ["./src/redux/*"], 
       "@reducers/*": ["./src/store/reducers/*"],
       "@theme/*": ["./src/theme/*"],
       "@util/*": ["./src/util/*"],
